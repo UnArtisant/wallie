@@ -1,14 +1,15 @@
 import React, {useState} from "react";
-import {FlatList} from "react-native";
+import {FlatList, View} from "react-native";
 import {specialPromoData} from "../data/home";
 import PromoItem from "./promo.item";
 import {SIZES} from "../../../constants";
 import HeaderContainer from "./header.container";
 
 function PromoContainer () {
-    const [promos, setPromos] = useState(specialPromoData)
+    const [promos, _] = useState(specialPromoData)
     return <FlatList
         ListHeaderComponent={HeaderContainer}
+        ListFooterComponent={<View style={{marginBottom: 80}}/>}
         data={promos}
         keyExtractor={(item) => item.id}
         numColumns={2}
